@@ -15,7 +15,7 @@ import (
 
 const scheduleUrl = "https://lolesports.com/schedule?leagues=lcs,lec,lck"
 
-var valuedTeams = []string{"T1", "DK", "GEN", "HLE", "C9", "TSM", "100", "TL", "FNC", "G2"}
+var valuedTeams = []string{"T1", "DK", "TSM", "TL", "FNC", "G2"}
 
 func GetNextMatch() {
 	// create context
@@ -50,11 +50,7 @@ func GetNextMatch() {
 		if isAlmostTime(gameTime) {
 			if isValued(team1, team2) {
 				text.SendText(fmt.Sprintf("%s vs %s in %d minutes", team1, team2, (gameTime / 60)))
-			} else {
-				text.SendText("Boring match soon")
 			}
-		} else {
-			text.SendText("No maches soon")
 		}
 	}
 
